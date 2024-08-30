@@ -10,5 +10,5 @@ export async function onRequestGet(context) {
     return await context.next();
   }
 
-  return new Response(obj.body);
+  return new Response(obj.body, { headers: { "Content-Type": obj.httpMetadata.contentType } });
 }
